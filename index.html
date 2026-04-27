@@ -16,14 +16,13 @@
 </head>
 <body class="bg-[#0A0A0A] text-white">
     
-    <!-- CLEAN NAV -->
+    <!-- NAV -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
             <div class="flex items-center gap-x-3">
                 <span class="text-7xl font-black headline-font neon-text">KELS</span>
                 <span class="text-4xl">👑</span>
             </div>
-            
             <button onclick="buyKels()" class="px-10 py-3.5 bg-white text-black font-bold rounded-3xl text-lg hover:bg-pink-500 hover:text-white transition-all glow-pink">
                 BUY $KELS
             </button>
@@ -43,64 +42,97 @@
                 <div class="inline-block px-6 py-2 bg-white/5 rounded-full border border-pink-500 mb-6">
                     <span class="text-pink-400 font-bold">🔥 LIVE ON SOLANA</span>
                 </div>
-                
                 <h1 class="text-[120px] leading-none font-black headline-font neon-text">KELS</h1>
                 <p class="text-7xl -mt-6 font-bold bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">The Blue Lizard Queen</p>
-                
                 <p class="mt-8 text-3xl max-w-lg">Not just a meme.<br><span class="font-bold text-white">It’s a whole damn movement.</span></p>
-                
                 <div class="mt-10">
                     <button onclick="buyKels()" class="px-16 py-5 bg-gradient-to-r from-pink-500 to-blue-500 text-2xl font-bold rounded-3xl glow-pink">BUY $KELS NOW</button>
                 </div>
             </div>
-            
             <div>
                 <img src="./images/hero.jpg" class="w-full max-w-[620px] rounded-3xl shadow-[0_0_100px_#FF00AA] border-4 border-pink-500">
             </div>
         </div>
     </section>
 
-    <!-- LIVE REAL STATS -->
-    <div class="bg-zinc-950 py-8 border-y border-white/10">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <div class="text-5xl font-black text-pink-400" id="holders">—</div>
-                <div class="text-lg">Holders</div>
-            </div>
-            <div>
-                <div class="text-5xl font-black text-blue-400" id="volume">—</div>
-                <div class="text-lg">24h Volume</div>
-            </div>
-            <div>
-                <div class="text-5xl font-black text-yellow-400" id="market-cap">—</div>
-                <div class="text-lg">Market Cap</div>
-            </div>
-            <div>
-                <div class="text-5xl font-black text-emerald-400" id="price-change">—</div>
-                <div class="text-lg">24h Change</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MEET THE QUEEN -->
-    <section class="max-w-6xl mx-auto px-6 py-24">
-        <div class="text-center mb-16">
-            <span class="text-pink-500 font-bold tracking-[4px]">THE LORE</span>
-            <h2 class="text-7xl font-black headline-font neon-text mt-2">MEET THE QUEEN</h2>
+    <!-- THE STORY BEHIND KELS (NEW!) -->
+    <section class="max-w-5xl mx-auto px-6 py-24">
+        <div class="text-center mb-12">
+            <span class="text-pink-500 font-bold tracking-[4px]">A LOVE STORY IN MEME FORM</span>
+            <h2 class="text-6xl font-black headline-font neon-text mt-3">THE STORY BEHIND KELS</h2>
         </div>
         
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <img src="./images/meet-kels.jpg" class="rounded-3xl shadow-2xl border border-pink-500 glow-pink">
-            <div class="space-y-8 text-2xl">
-                <p>She was born from pure chaos and memes.</p>
-                <p>One day she put on a crown, said “fuck it”, and decided to take over crypto.</p>
-                <p class="font-bold text-pink-400 text-3xl">Now she’s the queen.<br>And she’s just getting started.</p>
+        <div class="max-w-3xl mx-auto text-center text-2xl leading-relaxed">
+            <p class="mb-8">
+                Brett didn’t create $KELS for the charts.<br>
+                He created it for <span class="font-bold text-pink-400">Kelsey</span> — his wife, his best friend, and the woman who puts up with his crypto addiction.
+            </p>
+            
+            <p class="mb-8">
+                One night he looked at her and said:<br>
+                <span class="italic">"Baby… I’m gonna make you the queen of memes."</span>
+            </p>
+            
+            <p class="mb-8">
+                So he did.<br>
+                The blue lizard queen was born — inspired by Kelsey’s playful spirit, her crown-worthy energy, and the fact that she always keeps him laughing.
+            </p>
+            
+            <p class="font-bold text-pink-400 text-3xl">
+                This one’s for Kelsey.<br>
+                Crown on. Charts pumping.<br>
+                Made with love.
+            </p>
+        </div>
+    </section>
+
+    <!-- MEME GENERATOR -->
+    <section class="max-w-6xl mx-auto px-6 py-24 bg-zinc-950 border-y border-white/10">
+        <div class="text-center mb-12">
+            <span class="text-pink-500 font-bold tracking-[4px]">CREATE &amp; SHARE</span>
+            <h2 class="text-7xl font-black headline-font neon-text mt-2">KELS MEME GENERATOR</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Generator Controls -->
+            <div class="bg-zinc-900 p-10 rounded-3xl border border-pink-500 glow-pink">
+                <h3 class="text-3xl font-bold mb-6">Create Your Meme</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm mb-2">Upload your image</label>
+                        <input type="file" id="upload-image" accept="image/*" class="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-2xl file:border-0 file:bg-pink-500 file:text-white">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm mb-2">Top Text</label>
+                        <input type="text" id="top-text" placeholder="WHEN I BUY THE DIP" class="w-full bg-black border border-white/20 rounded-2xl px-4 py-3 text-xl">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm mb-2">Bottom Text</label>
+                        <input type="text" id="bottom-text" placeholder="AND IT DIPS AGAIN" class="w-full bg-black border border-white/20 rounded-2xl px-4 py-3 text-xl">
+                    </div>
+
+                    <button onclick="generateMeme()" class="w-full py-4 bg-white text-black font-bold text-xl rounded-3xl hover:bg-pink-500 hover:text-white transition-all">
+                        GENERATE MEME
+                    </button>
+                    
+                    <button onclick="downloadMeme()" class="w-full py-4 border border-white/30 font-bold rounded-3xl hover:bg-white hover:text-black transition-all">
+                        DOWNLOAD MEME
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview -->
+            <div class="bg-zinc-900 p-6 rounded-3xl border border-white/10 flex items-center justify-center min-h-[500px]">
+                <canvas id="meme-canvas" width="500" height="500" class="max-w-full border border-white/20 rounded-2xl"></canvas>
             </div>
         </div>
     </section>
 
-    <!-- PUMP THE LIZARD (FULLY FIXED GAME) -->
-    <section class="bg-zinc-950 py-20 border-y border-white/10">
+    <!-- PUMP THE LIZARD GAME -->
+    <section class="py-20">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <div class="text-pink-500 font-bold tracking-[4px] mb-4">FUN MODE ACTIVATED</div>
             <h2 class="text-6xl font-black headline-font neon-text mb-6">PUMP THE LIZARD</h2>
@@ -116,51 +148,6 @@
             </div>
             
             <button onclick="resetGame()" class="mt-8 px-10 py-3 border border-white/30 rounded-3xl hover:bg-white hover:text-black">RESET GAME</button>
-        </div>
-    </section>
-
-    <!-- HOLDER PERKS -->
-    <section class="max-w-6xl mx-auto px-6 py-24">
-        <div class="text-center mb-16">
-            <span class="text-pink-500 font-bold tracking-[4px]">WHY HOLD $KELS?</span>
-            <h2 class="text-7xl font-black headline-font neon-text mt-2">HOLDER PERKS</h2>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-zinc-900 p-10 rounded-3xl border border-pink-500 glow-pink">
-                <i class="fas fa-gem text-6xl text-pink-500 mb-6"></i>
-                <h3 class="text-3xl font-bold mb-4">Exclusive NFTs</h3>
-                <p class="text-xl">Early holders get first access to the KELS NFT collection.</p>
-            </div>
-            <div class="bg-zinc-900 p-10 rounded-3xl border border-blue-500 glow-blue">
-                <i class="fas fa-trophy text-6xl text-blue-400 mb-6"></i>
-                <h3 class="text-3xl font-bold mb-4">Holder Rewards</h3>
-                <p class="text-xl">5% of every transaction goes back to loyal holders.</p>
-            </div>
-            <div class="bg-zinc-900 p-10 rounded-3xl border border-yellow-400">
-                <i class="fas fa-rocket text-6xl text-yellow-400 mb-6"></i>
-                <h3 class="text-3xl font-bold mb-4">VIP Access</h3>
-                <p class="text-xl">Private Telegram, merch drops & IRL events.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- BUYBACK & BURN -->
-    <section class="bg-zinc-950 py-20 border-y border-white/10">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-7xl font-black headline-font neon-text mb-6">BUYBACK &amp; BURN</h2>
-            <p class="text-2xl max-w-3xl mx-auto mb-12">We’re not here to rug. We’re here to build forever.</p>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-zinc-900 p-10 rounded-3xl border border-pink-500">
-                    <h3 class="text-3xl font-bold mb-4 text-pink-400">Monthly Buybacks</h3>
-                    <p>10% of trading fees used to buy back $KELS from the market every month.</p>
-                </div>
-                <div class="bg-zinc-900 p-10 rounded-3xl border border-blue-500">
-                    <h3 class="text-3xl font-bold mb-4 text-blue-400">Quarterly Burns</h3>
-                    <p>25% of bought-back tokens are burned forever. The rest goes to community rewards.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -181,11 +168,74 @@
 
     <footer class="bg-black py-16 text-center border-t border-white/10">
         <div class="text-6xl mb-4">👑</div>
-        <p class="text-2xl font-bold">Made with love, chaos &amp; memes</p>
+        <p class="text-2xl font-bold">Made with love, chaos &amp; memes — for Kelsey</p>
         <p class="mt-4 text-gray-500">© 2026 $KELS — Not just a meme. It’s a movement.</p>
     </footer>
 
     <script>
+        // === MEME GENERATOR ===
+        let canvas = document.getElementById('meme-canvas');
+        let ctx = canvas.getContext('2d');
+        let uploadedImage = null;
+
+        document.getElementById('upload-image').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                const img = new Image();
+                img.onload = function() {
+                    uploadedImage = img;
+                    drawMeme();
+                };
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        function drawMeme() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (uploadedImage) {
+                ctx.drawImage(uploadedImage, 0, 0, canvas.width, canvas.height);
+            } else {
+                ctx.fillStyle = '#111';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 24px Impact';
+                ctx.textAlign = 'center';
+                ctx.fillText('Upload an image to start', canvas.width/2, canvas.height/2);
+            }
+            
+            const topText = document.getElementById('top-text').value.toUpperCase();
+            const bottomText = document.getElementById('bottom-text').value.toUpperCase();
+            
+            ctx.fillStyle = '#fff';
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 4;
+            ctx.font = 'bold 42px Impact';
+            ctx.textAlign = 'center';
+            
+            if (topText) {
+                ctx.strokeText(topText, canvas.width/2, 60);
+                ctx.fillText(topText, canvas.width/2, 60);
+            }
+            if (bottomText) {
+                ctx.strokeText(bottomText, canvas.width/2, canvas.height - 40);
+                ctx.fillText(bottomText, canvas.width/2, canvas.height - 40);
+            }
+        }
+
+        function generateMeme() { drawMeme(); }
+        function downloadMeme() {
+            const link = document.createElement('a');
+            link.download = 'kels-meme.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        document.getElementById('top-text').addEventListener('input', drawMeme);
+        document.getElementById('bottom-text').addEventListener('input', drawMeme);
+
         // === LIVE STATS ===
         async function fetchRealStats() {
             try {
@@ -207,30 +257,25 @@
             setInterval(fetchRealStats, 60000);
         }
 
-        // === PUMP THE LIZARD GAME (FULLY FIXED) ===
+        // === PUMP GAME ===
         let score = 0;
-        
         function pumpLizard() {
             score++;
             document.getElementById('pump-score').innerText = score;
-            
             const lizard = document.getElementById('lizard-img');
             lizard.style.transform = `translateY(-${score * 2.2}px)`;
             
             if (score % 8 === 0) confetti({ particleCount: 200, spread: 90 });
             if (score === 50) {
                 confetti({ particleCount: 700, spread: 160 });
-                setTimeout(() => alert("🔥 YOU'RE A LEGEND! KELS IS PROUD OF YOU!"), 700);
+                setTimeout(() => alert("🔥 YOU'RE A LEGEND! KELS LOVES YOU!"), 700);
             }
         }
-        
         function resetGame() {
             score = 0;
             document.getElementById('pump-score').innerText = "0";
             document.getElementById('lizard-img').style.transform = 'translateY(0)';
         }
-        
-        // Make game clickable on the whole area
         document.getElementById('game-area').addEventListener('click', pumpLizard);
 
         function buyKels() {
