@@ -3,103 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$KELS • The Blue Lizard Queen | Official Website</title>
-    <meta name="description" content="$KELS - The blue lizard queen taking over crypto. Not just a meme. It's a movement.">
+    <title>$KELS • The Blue Lizard Queen</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <style>
         body { font-family: 'Poppins', system_ui, sans-serif; }
         .headline-font { font-family: 'Impact', 'Arial Black', sans-serif; letter-spacing: 2px; }
-        .pulse { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .neon-text { text-shadow: 0 0 20px #FF00AA, 0 0 40px #00F0FF; }
+        .glow-pink { box-shadow: 0 0 25px #FF00AA; }
+        .glow-blue { box-shadow: 0 0 25px #00F0FF; }
+        .section { scroll-margin-top: 90px; }
     </style>
 </head>
 <body class="bg-[#0A0A0A] text-white">
-    <!-- NAVBAR + FLOATING TELEGRAM -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+    
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
             <div class="flex items-center gap-x-3">
-                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-pink-500 to-blue-500 flex items-center justify-center">
-                    <span class="text-3xl">🐊</span>
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 flex items-center justify-center glow-pink">
+                    <span class="text-4xl">🐊</span>
                 </div>
-                <span class="text-5xl font-black headline-font tracking-tighter">$KELS</span>
+                <span class="text-6xl font-black headline-font neon-text">$KELS</span>
             </div>
-
-            <div class="hidden md:flex items-center gap-x-9 text-sm font-semibold">
-                <a href="#about">Meet KELS</a>
-                <a href="#why">Why KELS?</a>
-                <a href="#tokenomics">Tokenomics</a>
-                <a href="#roadmap">Roadmap</a>
-                <a href="#how">How to Buy</a>
-            </div>
-
-            <div class="flex items-center gap-x-3">
-                <button onclick="buyKels()" class="px-7 py-3 bg-white text-black font-bold rounded-3xl text-sm hover:bg-pink-500 hover:text-white transition-all pulse">BUY $KELS</button>
+            
+            <div class="flex items-center gap-x-4">
+                <button onclick="buyKels()" class="px-8 py-3 bg-white text-black font-bold rounded-3xl hover:bg-pink-500 hover:text-white transition-all glow-pink">BUY $KELS</button>
             </div>
         </div>
     </nav>
 
-    <a href="https://t.me/KELSpump" target="_blank" class="fixed bottom-6 right-6 z-50 px-6 py-3 bg-[#229ED9] text-white font-bold rounded-3xl flex items-center gap-x-2">
-        <i class="fab fa-telegram-plane"></i> Join Telegram
+    <!-- FLOATING TELEGRAM -->
+    <a href="https://t.me/KELSpump" target="_blank" class="fixed bottom-8 right-8 z-50 px-7 py-4 bg-[#229ED9] hover:bg-[#1a7cb8] text-white font-bold rounded-3xl flex items-center gap-x-3 shadow-2xl glow-blue">
+        <i class="fab fa-telegram-plane text-3xl"></i>
+        <span class="font-bold">JOIN THE MOVEMENT</span>
     </a>
 
     <!-- HERO -->
-    <section class="min-h-screen pt-20 flex items-center bg-black">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <section class="min-h-screen flex items-center bg-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
             <div>
-                <h1 class="text-[100px] leading-none font-black headline-font">KELS</h1>
-                <p class="text-6xl -mt-4 font-bold bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">The Blue Lizard Queen</p>
-                <p class="mt-6 text-2xl text-gray-300">Not just a meme.<br><span class="font-semibold text-white">It’s a movement.</span></p>
+                <div class="inline-block px-6 py-2 bg-white/5 rounded-full border border-pink-500 mb-6">
+                    <span class="text-pink-400 font-bold">🔥 128,472 HOLDERS • LIVE ON SOLANA</span>
+                </div>
                 
-                <div class="mt-8 flex gap-4">
-                    <button onclick="buyKels()" class="px-10 py-4 bg-gradient-to-r from-pink-500 to-blue-500 font-bold text-xl rounded-3xl pulse">BUY $KELS NOW</button>
-                    <a href="https://t.me/KELSpump" class="px-8 py-4 border-2 border-white/30 rounded-3xl flex items-center gap-x-3">Join Telegram</a>
+                <h1 class="text-[110px] leading-none font-black headline-font neon-text">KELS</h1>
+                <p class="text-7xl -mt-6 font-bold bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">The Blue Lizard Queen</p>
+                
+                <p class="mt-8 text-3xl max-w-lg">Not just a meme.<br><span class="font-bold text-white">It’s a whole damn movement.</span></p>
+                
+                <div class="mt-10 flex gap-5">
+                    <button onclick="buyKels()" class="px-14 py-5 bg-gradient-to-r from-pink-500 to-blue-500 text-2xl font-bold rounded-3xl glow-pink">BUY $KELS NOW</button>
                 </div>
             </div>
-            <img src="./images/hero.jpg" class="w-full max-w-[560px] rounded-3xl shadow-2xl border border-white/10">
+            
+            <div class="relative">
+                <img src="./images/hero.jpg" class="w-full max-w-[620px] rounded-3xl shadow-[0_0_80px_#FF00AA] border-4 border-pink-500">
+            </div>
         </div>
     </section>
 
     <!-- STATS -->
-    <div class="bg-zinc-950 py-6 border-y border-white/10">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div><div class="text-4xl font-bold text-pink-400">128,472</div><div class="text-sm">Holders</div></div>
-            <div><div class="text-4xl font-bold text-blue-400">$4.87M</div><div class="text-sm">24h Volume</div></div>
-            <div><div class="text-4xl font-bold text-yellow-400">$18.2M</div><div class="text-sm">Market Cap</div></div>
-            <div><div class="text-4xl font-bold text-emerald-400">+312%</div><div class="text-sm">7d Change</div></div>
+    <div class="bg-zinc-950 py-8 border-y border-white/10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div><div class="text-5xl font-black text-pink-400">128K+</div><div class="text-lg">Holders</div></div>
+            <div><div class="text-5xl font-black text-blue-400">$4.87M</div><div class="text-lg">24h Volume</div></div>
+            <div><div class="text-5xl font-black text-yellow-400">$18.2M</div><div class="text-lg">Market Cap</div></div>
+            <div><div class="text-5xl font-black text-emerald-400">+312%</div><div class="text-lg">7d Change</div></div>
         </div>
     </div>
 
-    <!-- MEET KELS + WHY KELS + TOKENOMICS + ROADMAP (same as before) -->
-    <!-- ... (I kept the rest short for this message) -->
-
-    <!-- HOW TO BUY -->
-    <section id="how" class="max-w-5xl mx-auto px-6 py-20">
-        <h2 class="text-6xl font-black text-center mb-12">HOW TO BUY $KELS</h2>
-        
-        <div class="flex flex-col md:flex-row justify-center gap-4">
-            <button onclick="buyKels()" class="px-16 py-5 bg-white text-black font-black text-2xl rounded-3xl">BUY ON JUPITER</button>
-            <button onclick="window.open('https://raydium.io/swap/?inputMint=sol&outputMint=69HZnSz3XDHyTeBrrsn5NFbjpiryhHbYJZUGDx3QXH69', '_blank')" class="px-16 py-5 border-2 border-white font-black text-2xl rounded-3xl">BUY ON RAYDIUM</button>
+    <!-- MEET THE QUEEN -->
+    <section class="max-w-6xl mx-auto px-6 py-24 section">
+        <div class="text-center mb-16">
+            <span class="text-pink-500 font-bold tracking-[4px]">THE LORE</span>
+            <h2 class="text-7xl font-black headline-font neon-text mt-2">MEET THE QUEEN</h2>
         </div>
         
-        <div class="mt-8 text-center">
-            <span class="text-sm text-gray-400">Contract Address:</span><br>
-            <span onclick="copyCA()" class="font-mono text-pink-400 text-xl cursor-pointer">69HZnSz3XDHyTeBrrsn5NFbjpiryhHbYJZUGDx3QXH69</span>
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <img src="./images/meet-kels.jpg" class="rounded-3xl shadow-2xl border border-pink-500 glow-pink">
+            </div>
+            <div class="space-y-6 text-2xl">
+                <p>She was born from pure chaos and memes.</p>
+                <p>One day she put on a crown, said “fuck it”, and decided to take over crypto.</p>
+                <p class="font-bold text-pink-400">Now she’s the queen. And she’s just getting started.</p>
+            </div>
         </div>
     </section>
 
+    <!-- PUMP THE LIZARD GAME -->
+    <section class="bg-zinc-950 py-20 border-y border-white/10 section">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="text-pink-500 font-bold tracking-[4px] mb-4">FUN MODE ACTIVATED</div>
+            <h2 class="text-6xl font-black headline-font neon-text mb-6">PUMP THE LIZARD</h2>
+            <p class="text-2xl mb-10">Click KELS as fast as you can. The more you pump, the higher she flies!</p>
+            
+            <div onclick="pumpLizard()" class="cursor-pointer inline-block">
+                <img src="./images/kels-full.jpg" id="lizard" class="w-80 mx-auto transition-transform duration-100 hover:scale-110" style="filter: drop-shadow(0 0 40px #FF00AA);">
+            </div>
+            
+            <div class="mt-8">
+                <div class="text-6xl font-black text-pink-400" id="pump-score">0</div>
+                <div class="text-xl">PUMPS</div>
+            </div>
+            
+            <button onclick="resetGame()" class="mt-6 px-8 py-3 border border-white/30 rounded-3xl hover:bg-white hover:text-black">Reset</button>
+        </div>
+    </section>
+
+    <!-- HOLDER PERKS -->
+    <section class="max-w-6xl mx-auto px-6 py-24 section">
+        <div class="text-center mb-16">
+            <span class="text-pink-500 font-bold tracking-[4px]">WHY HOLD $KELS?</span>
+            <h2 class="text-7xl font-black headline-font neon-text mt-2">HOLDER PERKS</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-zinc-900 p-10 rounded-3xl border border-pink-500 glow-pink">
+                <i class="fas fa-gem text-6xl text-pink-500 mb-6"></i>
+                <h3 class="text-3xl font-bold mb-4">Exclusive NFTs</h3>
+                <p class="text-xl">Early holders get access to the upcoming KELS NFT collection.</p>
+            </div>
+            <div class="bg-zinc-900 p-10 rounded-3xl border border-blue-500 glow-blue">
+                <i class="fas fa-trophy text-6xl text-blue-400 mb-6"></i>
+                <h3 class="text-3xl font-bold mb-4">Holder Rewards</h3>
+                <p class="text-xl">5% of every transaction goes back to loyal holders.</p>
+            </div>
+            <div class="bg-zinc-900 p-10 rounded-3xl border border-yellow-400">
+                <i class="fas fa-rocket text-6xl text-yellow-400 mb-6"></i>
+                <h3 class="text-3xl font-bold mb-4">VIP Access</h3>
+                <p class="text-xl">Private Telegram, merch drops, and IRL events.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUYBACK & BURN -->
+    <section class="bg-zinc-950 py-20 border-y border-white/10 section">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-7xl font-black headline-font neon-text mb-6">BUYBACK &amp; BURN</h2>
+            <p class="text-2xl max-w-3xl mx-auto mb-12">We’re not here to rug. We’re here to build.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="bg-zinc-900 p-10 rounded-3xl">
+                    <h3 class="text-3xl font-bold mb-4 text-pink-400">10% Buyback</h3>
+                    <p>Every month we use 10% of trading fees to buy back $KELS from the market.</p>
+                </div>
+                <div class="bg-zinc-900 p-10 rounded-3xl">
+                    <h3 class="text-3xl font-bold mb-4 text-blue-400">Quarterly Burns</h3>
+                    <p>25% of bought-back tokens are burned forever. The rest goes to community rewards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW TO BUY -->
+    <section class="max-w-5xl mx-auto px-6 py-24 section">
+        <h2 class="text-7xl font-black text-center headline-font neon-text mb-12">HOW TO BUY $KELS</h2>
+        
+        <div class="flex flex-col md:flex-row justify-center gap-6">
+            <button onclick="buyKels()" class="px-20 py-6 bg-gradient-to-r from-pink-500 to-blue-500 text-3xl font-black rounded-3xl glow-pink">BUY ON JUPITER</button>
+            <button onclick="window.open('https://raydium.io/swap/?inputMint=sol&outputMint=YOUR_CA_HERE', '_blank')" class="px-20 py-6 border-4 border-white text-3xl font-black rounded-3xl">BUY ON RAYDIUM</button>
+        </div>
+        
+        <div class="mt-10 text-center">
+            <span class="text-sm text-gray-400">Contract Address</span><br>
+            <span onclick="copyCA()" class="font-mono text-2xl text-pink-400 cursor-pointer hover:underline">YOUR_CA_HERE</span>
+        </div>
+    </section>
+
+    <footer class="bg-black py-16 text-center border-t border-white/10">
+        <div class="text-6xl mb-4">🐊👑</div>
+        <p class="text-2xl font-bold">Made with love, chaos &amp; memes</p>
+        <p class="mt-4 text-gray-500">© 2026 $KELS — Not just a meme. It’s a movement.</p>
+    </footer>
+
     <script>
+        let score = 0;
+        
+        function pumpLizard() {
+            score++;
+            document.getElementById('pump-score').innerText = score;
+            
+            const lizard = document.getElementById('lizard');
+            lizard.style.transform = `translateY(-${score * 1.5}px)`;
+            
+            if (score % 10 === 0) {
+                confetti({ particleCount: 150, spread: 80 });
+            }
+            
+            if (score >= 50) {
+                confetti({ particleCount: 400, spread: 120 });
+                alert("🔥 YOU’RE A LEGEND! KELS LOVES YOU!");
+            }
+        }
+        
+        function resetGame() {
+            score = 0;
+            document.getElementById('pump-score').innerText = 0;
+            document.getElementById('lizard').style.transform = 'translateY(0)';
+        }
+        
         function buyKels() {
-            confetti({ particleCount: 300, spread: 120 });
-            const ca = "69HZnSz3XDHyTeBrrsn5NFbjpiryhHbYJZUGDx3QXH69";
+            confetti({ particleCount: 300, spread: 100 });
+            const ca = "YOUR_CA_HERE";
             window.open(`https://jup.ag/swap/SOL-${ca}`, "_blank");
         }
         
         function copyCA() {
-            navigator.clipboard.writeText("69HZnSz3XDHyTeBrrsn5NFbjpiryhHbYJZUGDx3QXH69");
+            navigator.clipboard.writeText("YOUR_CA_HERE");
             alert("Contract address copied!");
         }
+        
+        // Extra confetti on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 800 && Math.random() < 0.1) {
+                confetti({ particleCount: 60, spread: 60 });
+            }
+        });
     </script>
 </body>
 </html>
