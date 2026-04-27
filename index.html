@@ -1,660 +1,364 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>$KELS | Not Just a Meme. It’s a Movement.</title>
-  <meta name="description" content="$KELS is the blue lizard queen with the crown, the coin, and the unstoppable vibe." />
-  <meta property="og:title" content="$KELS | Not Just a Meme. It’s a Movement." />
-  <meta property="og:description" content="The blue lizard queen with the crown, the coin, and the unstoppable vibe." />
-  <meta property="og:image" content="assets/kels_asset_04.jpg" />
-  <link rel="icon" href="assets/kels_asset_01.jpg" />
-  <style>
-    :root {
-      --hot-pink: #FF00AA;
-      --electric-blue: #00F0FF;
-      --gold: #FFD700;
-      --black: #0A0A0A;
-      --text: #fff8ff;
-      --muted: #d9c7de;
-      --panel: rgba(255, 255, 255, 0.075);
-      --border: rgba(255, 255, 255, 0.16);
-      --shadow: 0 26px 90px rgba(255, 0, 170, 0.22);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Inter, Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 16% 12%, rgba(255, 0, 170, .24), transparent 32%),
-        radial-gradient(circle at 84% 8%, rgba(0, 240, 255, .18), transparent 30%),
-        radial-gradient(circle at 50% 80%, rgba(255, 215, 0, .12), transparent 36%),
-        var(--black);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 46px 46px;
-      mask-image: linear-gradient(to bottom, black 0%, transparent 92%);
-    }
-
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1160px, calc(100% - 34px)); margin: 0 auto; }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(10, 10, 10, .72);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-inner {
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: Impact, "Bebas Neue", "Arial Black", sans-serif;
-      font-size: 30px;
-      letter-spacing: .04em;
-    }
-
-    .brand img {
-      width: 44px;
-      height: 44px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid var(--hot-pink);
-      box-shadow: 0 0 24px rgba(255, 0, 170, .45);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: var(--muted);
-      font-weight: 850;
-      font-size: 14px;
-    }
-
-    .nav-links a:hover { color: var(--electric-blue); }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 20px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.18);
-      font-weight: 950;
-      letter-spacing: .02em;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-      border-color: rgba(255,255,255,.35);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--hot-pink), #8a3cff);
-      color: white;
-    }
-
-    .btn-blue {
-      background: linear-gradient(135deg, var(--electric-blue), #2859ff);
-      color: #041015;
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,.08);
-      color: white;
-    }
-
-    .hero {
-      padding: 70px 0 50px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.02fr .98fr;
-      gap: 42px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 0, 170, .4);
-      background: rgba(255, 0, 170, .13);
-      color: #ffd6f4;
-      font-weight: 950;
-      letter-spacing: .12em;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
-
-    h1, h2 {
-      font-family: Impact, "Bebas Neue", "Arial Black", sans-serif;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: .015em;
-    }
-
-    h1 {
-      margin-top: 18px;
-      font-size: clamp(72px, 15vw, 178px);
-      line-height: .78;
-      text-shadow: 0 0 34px rgba(255,0,170,.28);
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #fff, var(--hot-pink) 42%, var(--electric-blue));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .tagline {
-      margin: 18px 0 12px;
-      max-width: 660px;
-      font-size: clamp(22px, 3vw, 36px);
-      line-height: 1.08;
-      font-weight: 950;
-    }
-
-    .lead {
-      max-width: 660px;
-      color: var(--muted);
-      font-size: 20px;
-      line-height: 1.48;
-      margin: 0;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin: 28px 0;
-    }
-
-    .contract-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      max-width: 620px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.07);
-      color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      overflow: hidden;
-    }
-
-    .copy-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 10px 13px;
-      background: rgba(255,0,170,.18);
-      color: white;
-      font-weight: 950;
-      cursor: pointer;
-    }
-
-    .hero-art {
-      position: relative;
-      display: grid;
-      place-items: center;
-    }
-
-    .hero-art::before {
-      content: "";
-      position: absolute;
-      width: 78%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: conic-gradient(from 70deg, var(--hot-pink), var(--electric-blue), var(--gold), var(--hot-pink));
-      filter: blur(42px);
-      opacity: .42;
-      animation: spin 8s linear infinite;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .hero-img {
-      position: relative;
-      width: min(100%, 650px);
-      border-radius: 34px;
-      border: 1px solid rgba(255,255,255,.18);
-      box-shadow: 0 32px 120px rgba(0,0,0,.5), var(--shadow);
-      transform: rotate(.7deg);
-    }
-
-    .ticker-strip {
-      border-block: 1px solid var(--border);
-      overflow: hidden;
-      background: rgba(255,255,255,.06);
-    }
-
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 17s linear infinite;
-    }
-
-    .ticker-track span {
-      padding: 16px 24px;
-      font-family: Impact, "Arial Black", sans-serif;
-      font-size: 22px;
-      letter-spacing: .08em;
-      color: var(--gold);
-      text-transform: uppercase;
-    }
-
-    @keyframes marquee { to { transform: translateX(-50%); } }
-
-    section { padding: 74px 0; }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 28px;
-    }
-
-    .kicker {
-      margin-bottom: 10px;
-      color: var(--hot-pink);
-      font-weight: 950;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: 13px;
-    }
-
-    h2 {
-      font-size: clamp(42px, 7vw, 92px);
-      line-height: .86;
-    }
-
-    .muted { color: var(--muted); }
-
-    .split {
-      display: grid;
-      grid-template-columns: .92fr 1.08fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .image-card img, .image-card video {
-      width: 100%;
-      border-radius: 32px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      display: block;
-    }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 32px;
-      padding: 30px;
-      box-shadow: 0 18px 70px rgba(0,0,0,.24);
-    }
-
-    .panel p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 19px;
-      line-height: 1.58;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .card {
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.075);
-      padding: 24px;
-      min-height: 170px;
-    }
-
-    .card strong {
-      display: block;
-      font-size: 22px;
-      margin-bottom: 10px;
-      color: white;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.48;
-    }
-
-    .buy-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      counter-reset: step;
-    }
-
-    .step {
-      position: relative;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.075);
-      padding: 26px;
-    }
-
-    .step::before {
-      counter-increment: step;
-      content: "0" counter(step);
-      display: block;
-      color: var(--gold);
-      font-family: Impact, "Arial Black", sans-serif;
-      font-size: 36px;
-      margin-bottom: 16px;
-    }
-
-    .step h3 { margin: 0 0 10px; font-size: 23px; }
-    .step p { margin: 0; color: var(--muted); line-height: 1.45; }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .gallery img, .video-grid video {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.07);
-      box-shadow: 0 16px 64px rgba(0,0,0,.28);
-      transition: transform .2s ease;
-    }
-
-    .gallery img:hover {
-      transform: translateY(-4px) scale(1.015);
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .final-cta {
-      text-align: center;
-      border-radius: 42px;
-      border: 1px solid rgba(255,255,255,.18);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255, 0, 170, .25), transparent 42%),
-        rgba(255,255,255,.07);
-      padding: 86px 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .final-cta p {
-      max-width: 720px;
-      margin: 18px auto 28px;
-      color: var(--muted);
-      font-size: 21px;
-      line-height: 1.5;
-    }
-
-    footer {
-      padding: 44px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .socials {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 920px) {
-      .hero-grid, .split { grid-template-columns: 1fr; }
-      .cards, .buy-steps, .gallery, .video-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .section-head { flex-direction: column; align-items: start; }
-      .hero { padding-top: 44px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$KELS • The Blue Lizard Queen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Impact&amp;display=swap');
+        
+        body { font-family: 'Poppins', system_ui, sans-serif; }
+        .headline-font { font-family: 'Impact', 'Arial Black', sans-serif; letter-spacing: 2px; }
+        
+        .neon-pink { text-shadow: 0 0 15px #FF00AA; }
+        .section { scroll-margin-top: 90px; }
+        
+        .kels-gradient {
+            background: linear-gradient(90deg, #FF00AA, #00F0FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .meme-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), box-shadow 0.3s;
+        }
+        .meme-card:hover {
+            transform: translateY(-12px) rotate(1deg);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(to right, #FF00AA, #00F0FF);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after { width: 100%; }
+        
+        .dark .light-only { display: none; }
+        .light .dark-only { display: none; }
+    </style>
 </head>
-<body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#top">
-        <img src="assets/kels_asset_01.jpg" alt="KELS profile icon" />
-        <span>$KELS</span>
-      </a>
-      <div class="nav-links">
-        <a href="#meet">Meet</a>
-        <a href="#why">Why KELS</a>
-        <a href="#buy">How to Buy</a>
-        <a href="#media">Media</a>
-      </div>
-      <a class="btn btn-primary" href="https://x.com/pumpKELS" target="_blank" rel="noreferrer">Follow X</a>
-    </div>
-  </nav>
+<body class="bg-[#0A0A0A] text-white dark">
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 flex items-center justify-center shadow-lg">
+                        <span class="text-3xl">🐊</span>
+                    </div>
+                    <span class="text-5xl font-black headline-font tracking-tighter">$KELS</span>
+                </div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Sassy • Playful • Empowering</div>
-          <h1><span class="gradient-text">$KELS</span></h1>
-          <p class="tagline">The blue lizard queen with the crown, the coin, and the unstoppable vibe.</p>
-          <p class="lead">Not just a meme. It’s a movement.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#buy">Buy $KELS</a>
-            <a class="btn btn-blue" href="https://t.me/KELSpump" target="_blank" rel="noreferrer">Join Telegram</a>
-            <a class="btn btn-secondary" href="https://x.com/pumpKELS" target="_blank" rel="noreferrer">Follow X</a>
-          </div>
-          <div class="contract-card">
-            <span id="contract">CA: ADD_CONTRACT_ADDRESS_HERE</span>
-            <button class="copy-btn" onclick="copyContract()">Copy</button>
-          </div>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm font-semibold">
+                    <a href="#about" class="nav-link hover:text-pink-400 transition-colors">Meet KELS</a>
+                    <a href="#why" class="nav-link hover:text-pink-400 transition-colors">Why KELS?</a>
+                    <a href="#movement" class="nav-link hover:text-pink-400 transition-colors">The Movement</a>
+                    <a href="#how" class="nav-link hover:text-pink-400 transition-colors">How to Buy</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <!-- Theme Toggle -->
+                    <button onclick="toggleTheme()" 
+                            class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-white/10 transition-colors">
+                        <i class="fas fa-moon text-xl dark-only"></i>
+                        <i class="fas fa-sun text-xl light-only text-yellow-400"></i>
+                    </button>
+                    
+                    <!-- Socials -->
+                    <a href="https://x.com/pumpKELS" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-white/10 transition-colors">
+                        <i class="fab fa-x-twitter text-xl"></i>
+                    </a>
+                    <a href="https://t.me/KELSpump" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-white/10 transition-colors">
+                        <i class="fab fa-telegram-plane text-xl"></i>
+                    </a>
+                    
+                    <!-- Buy Button -->
+                    <button onclick="buyKels()" 
+                            class="hidden md:flex items-center gap-x-2 px-7 py-3 bg-white text-black font-bold rounded-3xl text-sm hover:bg-pink-500 hover:text-white transition-all active:scale-95">
+                        <span>BUY $KELS</span>
+                    </button>
+                    
+                    <!-- Mobile Menu -->
+                    <button class="md:hidden w-10 h-10 flex items-center justify-center" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="hero-art">
-          <img class="hero-img" src="assets/kels_asset_04.jpg" alt="$KELS blue lizard queen" />
+    </nav>
+
+    <!-- HERO -->
+    <section class="min-h-screen pt-20 flex items-center relative overflow-hidden bg-black">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-x-2 bg-white/5 px-4 py-1.5 rounded-3xl border border-white/10 text-sm">
+                    <div class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span class="font-medium tracking-[2px]">LIVE ON SOLANA • 128K HOLDERS</span>
+                </div>
+                
+                <div>
+                    <h1 class="text-[92px] md:text-[130px] leading-none font-black headline-font tracking-tighter">KELS</h1>
+                    <p class="text-5xl md:text-7xl -mt-6 font-bold bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">The Blue Lizard Queen</p>
+                </div>
+                
+                <p class="max-w-lg text-2xl text-gray-300">Not just a meme.<br><span class="font-semibold text-white">It’s a movement.</span></p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="buyKels()" 
+                            class="px-10 py-4 bg-gradient-to-r from-pink-500 to-blue-500 hover:brightness-110 font-bold text-xl rounded-3xl flex items-center justify-center gap-x-3 transition-all active:scale-[0.985]">
+                        <span>BUY $KELS NOW</span>
+                        <i class="fas fa-rocket"></i>
+                    </button>
+                    
+                    <a href="https://t.me/KELSpump" target="_blank"
+                       class="px-8 py-4 border-2 border-white/30 hover:bg-white/5 font-semibold rounded-3xl flex items-center justify-center gap-x-3 transition-all">
+                        <i class="fab fa-telegram-plane text-2xl"></i>
+                        <span>Join 128K Degens</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <img src="https://files.oaiusercontent.com/file-M4GFz..." alt="$KELS Hero" 
+                     class="w-full max-w-[560px] rounded-3xl shadow-2xl shadow-pink-500/30 border border-white/10">
+                
+                <div class="absolute -top-4 -right-4 bg-black/80 px-5 py-2 rounded-2xl border border-pink-500 text-sm flex items-center gap-x-2">
+                    <i class="fas fa-chart-line text-pink-400"></i>
+                    <span class="font-mono font-bold">+4,280% ATH</span>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <div class="ticker-strip">
-      <div class="ticker-track">
-        <span>Crown on</span><span>Coin flying</span><span>Charts pumping</span><span>#KELSMovement</span><span>WAGMI</span><span>Blue lizard queen</span>
-        <span>Crown on</span><span>Coin flying</span><span>Charts pumping</span><span>#KELSMovement</span><span>WAGMI</span><span>Blue lizard queen</span>
-      </div>
-    </div>
-
-    <section id="meet">
-      <div class="container split">
-        <div class="image-card">
-          <img src="assets/kels_asset_05.jpg" alt="Meet KELS" loading="lazy" />
+    <!-- MEET KELS -->
+    <section id="about" class="max-w-7xl mx-auto px-6 py-24 section">
+        <div class="grid md:grid-cols-12 gap-x-12 items-center">
+            <div class="md:col-span-6">
+                <span class="text-pink-500 font-bold tracking-[4px] text-sm">CHAPTER 01 • THE QUEEN</span>
+                <h2 class="text-7xl font-black headline-font leading-none mt-3">MEET<br>KELS</h2>
+                
+                <div class="mt-10 space-y-6 text-xl text-gray-300">
+                    <p>She’s $BRETT’s hotter, funnier, crown-wearing sister.</p>
+                    <p>Tongue out. Bags heavy. Charts always pumping.</p>
+                    <p class="font-semibold text-white">The meme coin that actually has fun while the whole community wins.</p>
+                </div>
+                
+                <div class="mt-12 flex items-center gap-x-6">
+                    <div>
+                        <div class="text-sm text-gray-400">OFFICIAL CHARACTER</div>
+                        <div class="font-bold text-2xl">KELSEY</div>
+                    </div>
+                    <div class="h-px flex-1 bg-white/10"></div>
+                    <div class="text-right">
+                        <div class="text-xs text-gray-400">CREATED WITH</div>
+                        <div class="font-mono text-pink-400">LOVE + CHAOS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-6 mt-12 md:mt-0">
+                <img src="https://files.oaiusercontent.com/file-yB0r8..." alt="KELS Close-up" 
+                     class="w-full rounded-3xl shadow-2xl border border-white/10">
+            </div>
         </div>
-        <div class="panel">
-          <div class="kicker">Meet KELS</div>
-          <h2>Who is this sassy blue lizard?</h2>
-          <p>She’s $BRETT’s hotter, funnier, crown-wearing sister.</p>
-          <p>Tongue out, bags heavy, charts pumping — KELS is the meme coin that actually has fun while we all win.</p>
-          <p>From the dance floor to the moon, she’s leading the charge with joy, memes, and massive gains.</p>
-        </div>
-      </div>
     </section>
 
-    <section id="why">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="kicker">Why KELS?</div>
-            <h2>This isn’t just another token.</h2>
-          </div>
-          <p class="muted" style="max-width: 500px; line-height: 1.55;">KELS isn’t here to follow trends — she’s here to start them.</p>
+    <!-- WHY KELS -->
+    <section id="why" class="bg-zinc-950 py-20 border-y border-white/10 section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-pink-500 font-bold tracking-[4px]">CHAPTER 02</span>
+                <h2 class="text-7xl font-black headline-font mt-2">WHY KELS?</h2>
+            </div>
+            
+            <img src="https://files.oaiusercontent.com/file-aIegF..." alt="Why KELS Banner" class="w-full rounded-3xl mb-16 shadow-xl">
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="meme-card bg-zinc-900 p-9 rounded-3xl border border-white/10">
+                    <i class="fas fa-crown text-5xl text-pink-500 mb-6"></i>
+                    <h3 class="text-3xl font-bold mb-4">Cute but Chaotic</h3>
+                    <p class="text-gray-400">Adorable until the charts start running. Then she becomes an unstoppable movement.</p>
+                </div>
+                <div class="meme-card bg-zinc-900 p-9 rounded-3xl border border-white/10">
+                    <i class="fas fa-users text-5xl text-blue-400 mb-6"></i>
+                    <h3 class="text-3xl font-bold mb-4">Real Degens Only</h3>
+                    <p class="text-gray-400">No paid influencers. No bots. Just real people who love the lizard and the lifestyle.</p>
+                </div>
+                <div class="meme-card bg-zinc-900 p-9 rounded-3xl border border-white/10">
+                    <i class="fas fa-rocket text-5xl text-yellow-400 mb-6"></i>
+                    <h3 class="text-3xl font-bold mb-4">Built Different</h3>
+                    <p class="text-gray-400">No rugs. Real utility coming. This lizard is here for the long haul.</p>
+                </div>
+            </div>
         </div>
-        <div class="cards">
-          <div class="card"><strong>Female-led meme coin revolution</strong><p>Cute chaos with a recognizable character and a clean thesis.</p></div>
-          <div class="card"><strong>Real community</strong><p>Real vibes, real movement, real timeline energy.</p></div>
-          <div class="card"><strong>Cute but chaotic</strong><p>The best kind of energy for raids, replies, memes, and momentum.</p></div>
-          <div class="card"><strong>Built to last</strong><p>Transparent, fun, and designed around content people can share.</p></div>
-        </div>
-      </div>
     </section>
 
-    <section id="movement">
-      <div class="container split">
-        <div class="panel">
-          <div class="kicker">The Movement</div>
-          <h2>Crown on. Coin flying. Charts pumping.</h2>
-          <p>KELS isn’t just a meme coin.</p>
-          <p>She’s a lifestyle. A community. A whole damn movement.</p>
-          <p>Join the family that laughs, dances, and moons together.</p>
-          <div class="cta-row">
-            <a class="btn btn-blue" href="https://t.me/KELSpump" target="_blank" rel="noreferrer">Telegram</a>
-            <a class="btn btn-primary" href="https://x.com/pumpKELS" target="_blank" rel="noreferrer">X / Twitter</a>
-          </div>
+    <!-- THE MOVEMENT -->
+    <section id="movement" class="max-w-5xl mx-auto px-6 py-24 text-center section">
+        <span class="text-pink-500 font-bold tracking-[4px]">CHAPTER 03</span>
+        <h2 class="text-7xl font-black headline-font leading-none mt-4">THE<br>MOVEMENT</h2>
+        
+        <p class="mt-8 text-2xl max-w-2xl mx-auto text-gray-300">
+            Crown on. Coin flying. Charts pumping.<br>
+            <span class="font-semibold text-white">KELS isn’t just a token — she’s a lifestyle.</span>
+        </p>
+        
+        <div class="mt-14 flex flex-col sm:flex-row justify-center gap-5">
+            <a href="https://x.com/pumpKELS" target="_blank"
+               class="px-14 py-4 bg-white text-black font-bold rounded-3xl text-lg flex items-center justify-center gap-x-3 hover:bg-zinc-200 transition-all">
+                <i class="fab fa-x-twitter text-2xl"></i>
+                <span>Follow on X</span>
+            </a>
+            <a href="https://t.me/KELSpump" target="_blank"
+               class="px-14 py-4 border-2 border-white hover:bg-white hover:text-black font-bold rounded-3xl text-lg flex items-center justify-center gap-x-3 transition-all">
+                <i class="fab fa-telegram-plane text-2xl"></i>
+                <span>Join Telegram</span>
+            </a>
         </div>
-        <div class="image-card">
-          <img src="assets/kels_asset_02.jpg" alt="KELS movement meme" loading="lazy" />
-        </div>
-      </div>
     </section>
 
-    <section id="buy">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="kicker">How to Buy $KELS</div>
-            <h2>Simple steps</h2>
-          </div>
+    <!-- HOW TO BUY -->
+    <section id="how" class="bg-black py-20 border-t border-white/10 section">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-pink-500 font-bold tracking-[4px]">CHAPTER 04</span>
+                <h2 class="text-7xl font-black headline-font mt-2">HOW TO BUY $KELS</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-zinc-900 p-8 rounded-3xl border border-white/10 text-center">
+                    <div class="text-5xl mb-6">1</div>
+                    <div class="font-bold text-2xl mb-2">Get a Wallet</div>
+                    <div class="text-gray-400">Phantom or Solflare</div>
+                </div>
+                <div class="bg-zinc-900 p-8 rounded-3xl border border-white/10 text-center">
+                    <div class="text-5xl mb-6">2</div>
+                    <div class="font-bold text-2xl mb-2">Buy SOL</div>
+                    <div class="text-gray-400">Binance, Coinbase, Moonpay</div>
+                </div>
+                <div class="bg-zinc-900 p-8 rounded-3xl border border-white/10 text-center">
+                    <div class="text-5xl mb-6">3</div>
+                    <div class="font-bold text-2xl mb-2">Swap on Raydium / Jupiter</div>
+                    <div class="text-gray-400">Paste CA below</div>
+                </div>
+                <div class="bg-gradient-to-br from-pink-500 to-blue-500 p-8 rounded-3xl text-center text-black">
+                    <div class="text-5xl mb-6">4</div>
+                    <div class="font-black text-2xl mb-2">HODL &amp; VIBE</div>
+                    <div class="text-sm">Join the Telegram • Enjoy the memes</div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button onclick="buyKels()" 
+                        class="px-16 py-5 bg-white text-black font-black text-2xl rounded-3xl hover:bg-pink-500 hover:text-white transition-all active:scale-[0.985]">
+                    BUY $KELS NOW
+                </button>
+                <p class="mt-4 text-xs text-gray-500">Contract Address: <span class="font-mono text-pink-400">Coming soon — check Telegram</span></p>
+            </div>
         </div>
-        <div class="buy-steps">
-          <div class="step"><h3>Get a wallet</h3><p>Use Phantom or Solflare.</p></div>
-          <div class="step"><h3>Buy SOL</h3><p>Use Binance, Coinbase, or your preferred exchange.</p></div>
-          <div class="step"><h3>Swap for $KELS</h3><p>Use Raydium or Jupiter once the pair is live.</p></div>
-          <div class="step"><h3>HODL</h3><p>Enjoy the ride with the KELS family.</p></div>
-        </div>
-        <div class="contract-card" style="margin-top:18px; max-width:100%;">
-          <span>CA: ADD_CONTRACT_ADDRESS_HERE</span>
-          <button class="copy-btn" onclick="copyContract()">Copy</button>
-        </div>
-      </div>
     </section>
 
-    <section id="media">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="kicker">Media Kit</div>
-            <h2>KELS assets</h2>
-          </div>
-          <p class="muted" style="max-width: 500px; line-height: 1.55;">Use these for posts, raids, profile visuals, banners, and launch content.</p>
+    <!-- FOOTER -->
+    <footer class="bg-zinc-950 border-t border-white/10 py-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex justify-center mb-8">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-pink-500 to-blue-500 rounded-2xl flex items-center justify-center">
+                        <span class="text-3xl">🐊</span>
+                    </div>
+                    <span class="text-5xl font-black headline-font">$KELS</span>
+                </div>
+            </div>
+            
+            <p class="max-w-md mx-auto text-sm text-gray-500">
+                $KELS is a meme coin for entertainment purposes only. 
+                This is not financial advice. DYOR. Don’t invest what you can’t afford to lose.
+            </p>
+            
+            <div class="mt-10 text-xs text-gray-600">
+                © 2026 $KELS — Not just a meme. It’s a movement. • Made with love &amp; chaos
+            </div>
         </div>
-        <div class="gallery">
-          <img src="assets/kels_asset_01.jpg" alt="KELS meme asset" loading="lazy" />
-          <img src="assets/kels_asset_02.jpg" alt="KELS meme asset" loading="lazy" />
-          <img src="assets/kels_asset_03.jpg" alt="KELS meme asset" loading="lazy" />
-          <img src="assets/kels_asset_04.jpg" alt="KELS meme asset" loading="lazy" />
-          <img src="assets/kels_asset_05.jpg" alt="KELS meme asset" loading="lazy" />
-          <img src="assets/kels_asset_06.jpg" alt="KELS meme asset" loading="lazy" />
-          <img src="assets/kels_asset_07.jpg" alt="KELS meme asset" loading="lazy" />
-        </div>
-        <div class="video-grid">          <video controls playsinline muted loop preload="metadata">
-            <source src="assets/kels_asset_08.mp4" type="video/mp4" />
-          </video>
-          <video controls playsinline muted loop preload="metadata">
-            <source src="assets/kels_asset_09.mp4" type="video/mp4" />
-          </video></div>
-      </div>
-    </section>
+    </footer>
 
-    <section>
-      <div class="container">
-        <div class="final-cta">
-          <div class="kicker">Join the family</div>
-          <h2>#KELSMovement</h2>
-          <p>Telegram • X • Instagram • TikTok. Laugh together. Dance together. Moon together.</p>
-          <div class="cta-row" style="justify-content:center;">
-            <a class="btn btn-blue" href="https://t.me/KELSpump" target="_blank" rel="noreferrer">Join Telegram</a>
-            <a class="btn btn-primary" href="https://x.com/pumpKELS" target="_blank" rel="noreferrer">Follow X</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-row">
-      <strong>© 2026 $KELS — Not just a meme. It’s a movement.</strong>
-      <div class="socials">
-        <a href="https://t.me/KELSpump" target="_blank" rel="noreferrer">Telegram</a>
-        <span>•</span>
-        <a href="https://x.com/pumpKELS" target="_blank" rel="noreferrer">X</a>
-      </div>
-      <span>This is a meme coin. DYOR. Have fun. Don’t invest what you can’t afford to lose.</span>
-    </div>
-  </footer>
-
-  <script>
-    function copyContract() {
-      const text = "ADD_CONTRACT_ADDRESS_HERE";
-      navigator.clipboard.writeText(text).then(() => {
-        document.querySelectorAll(".copy-btn").forEach(btn => {
-          const old = btn.innerText;
-          btn.innerText = "Copied";
-          setTimeout(() => btn.innerText = old, 1200);
+    <script>
+        // Tailwind script
+        function initTailwind() {
+            document.documentElement.classList.add('dark');
+        }
+        
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            
+            // Optional: save preference
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
+        
+        // Confetti + Buy Action
+        function buyKels() {
+            // Confetti explosion
+            confetti({
+                particleCount: 180,
+                spread: 90,
+                origin: { y: 0.6 }
+            });
+            
+            setTimeout(() => {
+                confetti({
+                    particleCount: 120,
+                    angle: 60,
+                    spread: 70,
+                    origin: { x: 0.1 }
+                });
+            }, 250);
+            
+            // Fake alert (replace with real DEX link later)
+            setTimeout(() => {
+                alert("🚀 Redirecting to Raydium... (Replace this with real link)");
+                // window.location.href = "https://raydium.io/swap/?inputMint=...&outputMint=YOUR_CA";
+            }, 900);
+        }
+        
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const nav = document.querySelector('nav');
+            alert("Mobile menu would open here (add your links)");
+        }
+        
+        // Keyboard shortcut for fun
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "?" && document.activeElement.tagName === "BODY") {
+                confetti({ particleCount: 300, spread: 120 });
+            }
         });
-      });
-    }
-  </script>
+        
+        // Init everything
+        window.onload = function() {
+            initTailwind();
+            
+            // Load saved theme
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.remove('dark');
+            }
+            
+            console.log('%c[KELS] Website fully loaded with confetti & theme toggle!', 'color:#FF00AA');
+        }
+    </script>
 </body>
 </html>
